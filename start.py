@@ -16,16 +16,12 @@ os.path.exists('/home/pi/testbed-v2/Scenario-IoTs/Traffic/gestion_trafico.py'))
 
 
 if command:
-    subprocess.Popen(shlex.split(cmd1), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    subprocess.Popen(shlex.split(cmd2), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    subprocess.Popen(shlex.split(cmd3), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    os.system('python /home/pi/testbed-v2/Scenario-IoTs/TrafficLight/gestion_semaforos.py ip=' + sys.argv[1] + ' port=5000 & python /home/pi/testbed-v2/Scenario-IoTs/StreetLight/gestion_farolas.py ip=' + sys.argv[1] + ' port=5002 & python /home/pi/testbed-v2/Scenario-IoTs/Traffic/gestion_trafico.py ip=' + sys.argv[1] + ' port=5004')
 else:
     estan=False
     print 'no estan'
     while not estan:
 	if command:
 	    estan=true
-	    subprocess.Popen(shlex.split(cmd1), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    	    subprocess.Popen(shlex.split(cmd2), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    	    subprocess.Popen(shlex.split(cmd3), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+	    os.system('python /home/pi/testbed-v2/Scenario-IoTs/TrafficLight/gestion_semaforos.py ip=' + sys.argv[1] + ' port=5000 & python /home/pi/testbed-v2/Scenario-IoTs/StreetLight/gestion_farolas.py ip=' + sys.argv[1] + ' port=5002 & python /home/pi/testbed-v2/Scenario-IoTs/Traffic/gestion_trafico.py ip=' + sys.argv[1] + ' port=5004')
 
