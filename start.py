@@ -9,7 +9,22 @@ cmd1 = 'python /home/pi/testbed-v2/Scenario-IoTs/TrafficLight/gestion_semaforos.
 cmd2 = 'python /home/pi/testbed-v2/Scenario-IoTs/StreetLight/gestion_farolas.py ip=' + sys.argv[1] + ' port=5002'
 cmd3 = 'python /home/pi/testbed-v2/Scenario-IoTs/Traffic/gestion_trafico.py ip=' + sys.argv[1] + ' port=5004'
 
-subprocess.Popen(shlex.split(cmd1), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-subprocess.Popen(shlex.split(cmd2), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-subprocess.Popen(shlex.split(cmd3), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+
+command = os.path.exists('/home/pi/testbed-v2/Scenario-IoTs/gestion_semaforos.py') and 
+os.path.exists('/home/pi/testbed-v2/Scenario-IoTs/gestion_semaforos.py') and 
+os.path.exists('/home/pi/testbed-v2/Scenario-IoTs/gestion_semaforos.py')
+
+
+if command:
+    subprocess.Popen(shlex.split(cmd1), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    subprocess.Popen(shlex.split(cmd2), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    subprocess.Popen(shlex.split(cmd3), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+else:
+    estan=false
+    while !estan:
+	if command:
+	    estan=true
+	    subprocess.Popen(shlex.split(cmd1), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    	    subprocess.Popen(shlex.split(cmd2), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    	    subprocess.Popen(shlex.split(cmd3), stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
